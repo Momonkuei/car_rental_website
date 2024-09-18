@@ -103,7 +103,7 @@ export default {
               subWrap.style.display = 'none'
             })
 
-            if (thirdListItemData) {
+            if (!thirdListItemData) {
               return
             }
 
