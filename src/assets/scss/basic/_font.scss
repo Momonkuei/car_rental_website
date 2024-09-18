@@ -1,0 +1,59 @@
+body {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.mini {
+  font-size: $font-size-base * 0.875;
+}
+
+.fz-10 {
+  font-size: $font-size-base * 0.625;
+}
+
+.fz-12 {
+  font-size: $font-size-base * 0.75;
+}
+
+.fz-14 {
+  font-size: $font-size-base * 0.875;
+}
+
+.fz-16 {
+  font-size: $font-size-base;
+}
+
+.fz-18 {
+  font-size: $font-size-base * 1.125;
+}
+
+.fz-20 {
+  font-size: $font-size-base * 1.25;
+}
+
+.fz-24 {
+  font-size: $font-size-base * 1.5;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.text-headline {
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+  line-height: 1.35;
+}
+
+.text-title-second {
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,87 @@
+$primary: #35286d;
+$secondary: #35286d;
+
+$body-color: #212529;
+
+// 線條
+$gray-border: #ccc;
+
+// view
+$viewL: 1200px;
+$viewM: 992px;
+$viewS: 768px;
+$viewMobile: 576px;
+
+/**************/
+// header
+/**************/
+
+// 選單
+$header-fullMenu-bg: #fff;
+$header-loginMenu-bg: #fff;
+$header-second-menu-txt-color: #606060;
+// $header-second-menu-bg: #e4e4e1;
+$header-second-menu-bg: #fff;
+$header-member-dropdown-menu-bg: #f1f1f0;
+$header-member-dropdown-menu-li-hover-bg: #e4e4e1;
+
+//scrollbar
+$header-scrollbar-bg-color: #eaeaea;
+$header-scrollbar-color: $primary;
+
+/**************/
+// form
+/**************/
+
+$member-form-input-border-color: #ccc;
+$member-form-select-border-color: #ccc;
+$member-form-dash-color: #606060;
+// 會員
+$zipcode-txt-color: #606060;
+$zipcode-bg: #e4e4e1;
+
+//toggle-switch
+$toggle-switch-bg: #606060;
+
+/**************/
+// order
+/**************/
+
+$orderLists-scrollbar-bg-color: #e4e4e1;
+$orderLists-scrollbar-color: $primary;
+
+/**************/
+// member
+/**************/
+
+/**************/
+// product
+/**************/
+
+// 產品大類
+$product-category-cards-content-color: #606060;
+
+// 產品列表
+$product-sidebar-border-color: #ccc;
+$product-sidebar-icon-color: #606060;
+$product-sidebar-hover-color-bg: #e9e9e7;
+$product-info-hover-color: #606060;
+
+// 產品說明
+$product-item-collapsible-btn-bg: #e9e9e7;
+
+// 產品標籤顏色
+$product-label-bg-color: #ff0000;
+
+/**************/
+// article
+/**************/
+
+$article-item-subLabel-color: #606060;
+
+// 自訂義顏色
+$mark: $primary;
+
+// Button
+
+$cancel-btn-color: #6e7881;

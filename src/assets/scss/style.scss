@@ -1,0 +1,53 @@
+//Reset CSS
+@import "basic/reset";
+
+// config
+@import "basic/config";
+
+@import "../../node_modules/bootstrap-5.1.1/scss/bootstrap";
+
+// basic
+@import "basic/basic";
+
+@import "basic/font";
+@import "basic/size";
+
+// function
+@import "function/text";
+
+// elements
+// @import "element/animations";
+// @import "element/banner";
+// @import "element/button";
+// @import "element/effects";
+// @import "element/footer";
+// @import "element/form";
+// @import "element/gotop";
+// @import "element/header";
+// @import "element/image";
+// @import "element/modal";
+// @import "element/navMenu";
+// @import "element/pagination";
+// @import "element/title";
+
+// page
+// @import "page/account";
+// @import "page/article_inner_pages";
+// @import "page/article_lists";
+// @import "page/cart";
+// @import "page/cart2";
+// @import "page/cart3";
+// @import "page/forget_password";
+// @import "page/index";
+// @import "page/login";
+// @import "page/member_application";
+// @import "page/member_modification";
+// @import "page/news_inner_pages";
+// @import "page/order_detail";
+// @import "page/order_lists";
+// @import "page/privacy_rule";
+// @import "page/product_category";
+// @import "page/_product_detail";
+// @import "page/product_lists";
+// @import "page/project_introduction";
+// @import "page/reset_password";
