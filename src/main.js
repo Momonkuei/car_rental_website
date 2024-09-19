@@ -1,3 +1,5 @@
+import './js/header'
+
 import './assets/main.css'
 
 import { createApp } from 'vue'

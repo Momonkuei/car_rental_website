@@ -2,6 +2,7 @@
   <div>
     <headerStyle02></headerStyle02>
     <div class="header-fullMenu-mask"></div>
+    <div class="body-content"></div>
   </div>
 </template>
 
