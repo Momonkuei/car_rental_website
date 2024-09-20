@@ -2,7 +2,7 @@
   <div>
     <headerStyle02></headerStyle02>
     <div class="header-fullMenu-mask"></div>
-    <div class="body-content"></div>
+    <router-view></router-view>
   </div>
 </template>
 
