@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const headerStyle02 = document.querySelector('.headerStyle02')
-  console.log('123456')
 
   if (headerStyle02) {
     document.querySelectorAll('header .navMenu .navMenu-link').forEach((link) => {

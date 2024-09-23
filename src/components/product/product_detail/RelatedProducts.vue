@@ -1,64 +1,75 @@
 <template>
-  <div class="related-products-gallery-box">
-    <!-- <div class="related-products-gallery-item">
-      <a href="https://www.google.com.tw/?hl=zh_TW">
-        <carousel
-          :per-page="1"
-          :navigate-to="someLocalProperty"
-          :mouse-drag="false"
-          class="related-products-gallery-item-imgBoxList related-products-gallery-item-imgBoxList-1"
-        >
-          <slide class="">
-            <div class="img-box">
-              <img src="/images/product/products/02.jpg" alt="" />
-            </div>
-          </slide>
+  <div class="related-products-gallery">
+    <div class="related-products-gallery-title">
+      <span class="heading">其他相關商品</span>
+    </div>
 
-          <slide class="">
-            <div class="img-box">
-              <img src="/images/product/product_detail/002.jpg" alt="" />
-            </div>
-          </slide>
+    <div class="related-products-gallery-box">
+      <div
+        class="related-products-gallery-item"
+        v-for="(product, i) in products"
+        :key="product.name"
+      >
+        <a :href="product.link" target="_blank">
+          <carousel
+            ref="myCarousels"
+            snapAlign="start"
+            class="related-products-gallery-item-imgBoxList related-products-gallery-item-imgBoxList-1"
+          >
+            <slide class="" v-for="img in product.images" :key="img">
+              <div class="img-box">
+                <img :src="img" alt="" />
+              </div>
+            </slide>
 
-          <slide class="">
-            <div class="img-box">
-              <img src="/images/product/product_detail/003.jpg" alt="" />
-            </div>
-          </slide>
-        </carousel>
+            <template #addons>
+              <navigation>
+                <template #next>
+                  <span @click.prevent.stop="handleNext(i)"
+                    ><i class="bi bi-chevron-right"></i
+                  ></span>
+                </template>
+                <template #prev>
+                  <span @click.prevent.stop="handlePrev(i)"
+                    ><i class="bi bi-chevron-left"></i
+                  ></span>
+                </template>
+              </navigation>
+            </template>
+          </carousel>
 
-        <div class="related-products-gallery-item-labelLists">
-          <span class="related-products-gallery-item-label">NEW</span>
-        </div>
-
-        <div class="related-products-gallery-item-info">
-          <div class="title">
-            <span>九尾粉狐 旅行箱</span>
+          <div class="related-products-gallery-item-labelLists">
+            <span class="related-products-gallery-item-label" v-for="label in product.labels">{{
+              label
+            }}</span>
           </div>
-          <div class="price fz-14">
-            <span class="original-price"> <span>NT</span><del>NT$9000</del> </span>
-            <span class="selling-price"> <span>NT</span>$7480 </span>
-          </div>
-        </div>
-      </a>
-    </div> -->
 
-    <Carousel>
-      <slide> Slide 1 Content </slide>
-      <slide> Slide 2 Content </slide>
-    </Carousel>
+          <div class="related-products-gallery-item-info">
+            <div class="title">
+              <span>{{ product.name }}</span>
+            </div>
+            <div class="price fz-14">
+              <span class="original-price">
+                <span>NT</span><del>{{ product.originalPrice }}</del>
+              </span>
+              <span class="selling-price"> <span>NT</span>{{ product.sellingPrice }} </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
 export default {
+  name: 'RelatedProducts',
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation
   },
   data() {
@@ -69,7 +80,7 @@ export default {
           originalPrice: '9000',
           sellingPrice: '7480',
           link: 'https://www.google.com.tw/?hl=zh_TW',
-          label: 'NEW',
+          labels: ['NEW'],
           images: [
             '/images/product/products/02.jpg',
             '/images/product/product_detail/002.jpg',
@@ -80,7 +91,8 @@ export default {
           name: '大海魚 旅行箱',
           originalPrice: '9000',
           sellingPrice: '7480',
-          link: 'https://www.google.com.tw/?hl=zh_TW',
+          link: 'https://www.youtube.com/?app=desktop&hl=zh-tw',
+          labels: [],
           images: [
             '/images/product/products/03.jpg',
             '/images/product/product_detail/002.jpg',
@@ -89,11 +101,61 @@ export default {
         }
         // 其他产品信息
       ],
-      settings: {
-        arrows: true,
-        dots: true
+
+      myCarousel: null
+    }
+  },
+
+  methods: {
+    handleNext(i) {
+      // 確認 $refs.myCarousels 是陣列並取到對應的 carousel
+      const carousels = this.$refs.myCarousels
+      const targetCarousel = carousels[i]
+      console.log(i)
+      if (targetCarousel) {
+        targetCarousel.next() // 調用 next 方法
+      }
+    },
+    handlePrev(i) {
+      const carousels = this.$refs.myCarousels
+      const targetCarousel = carousels[i]
+      if (targetCarousel) {
+        targetCarousel.prev()
       }
     }
+  },
+  mounted() {
+    // 在 mounted 生命週期中取得 carousel 的參考
+    this.myCarousel = this.$refs.myCarousel
+    console.log('myCarousel', this.myCarousel)
   }
 }
 </script>
+
+<style lang="scss">
+.carousel__prev,
+.carousel__next {
+  font-weight: 400;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  color: #000;
+}
+
+.related-products-gallery-item {
+  &:hover {
+    .carousel__prev,
+    .carousel__next {
+      opacity: 1;
+    }
+  }
+}
+</style>
