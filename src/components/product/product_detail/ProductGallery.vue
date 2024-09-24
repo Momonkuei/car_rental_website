@@ -1,48 +1,67 @@
 <template>
   <div class="product-gallery">
     <div class="product-gallery-box">
-      <ul class="product-gallery-lists">
-        <li class="product-gallery-item">
+      <vue-slick-carousel
+        v-if="isMobile"
+        class="product-gallery-lists"
+        :settings="carouselSettings"
+      >
+        <div class="product-gallery-item" v-for="(img, idx) in images" :key="idx">
           <div class="img-box">
-            <img src="/images/product/product_detail/001.jpg" alt="" />
+            <img :src="img" alt="" />
           </div>
-        </li>
-        <li class="product-gallery-item">
-          <div class="img-box">
-            <img src="/images/product/product_detail/002.jpg" alt="" />
-          </div>
-        </li>
+        </div>
+      </vue-slick-carousel>
 
-        <li class="product-gallery-item">
+      <!-- 非手機模式下顯示的內容 -->
+      <ul class="product-gallery-lists">
+        <li class="product-gallery-item" v-for="(img, idx) in images" :key="idx">
           <div class="img-box">
-            <img src="/images/product/product_detail/003.jpg" alt="" />
+            <img :src="img" alt="" />
           </div>
         </li>
       </ul>
     </div>
 
     <div class="product-gallery-subBox">
-      <ul class="product-gallery-sublists">
-        <li class="product-gallery-subItem">
+      <vue-slick-carousel
+        v-if="isMobile"
+        class="product-gallery-sublists"
+        :settings="carouselSettings"
+      >
+        <div class="product-gallery-subItem" v-for="(img, idx) in images" :key="idx">
           <div class="img-box">
-            <img src="/images/product/product_detail/001.jpg" alt="" />
+            <img :src="img" alt="" />
           </div>
-        </li>
-        <li class="product-gallery-subItem">
-          <div class="img-box">
-            <img src="/images/product/product_detail/002.jpg" alt="" />
-          </div>
-        </li>
-        <li class="product-gallery-subItem">
-          <div class="img-box">
-            <img src="/images/product/product_detail/003.jpg" alt="" />
-          </div>
-        </li>
-      </ul>
+        </div>
+      </vue-slick-carousel>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+export default {
+  components: {
+    VueSlickCarousel
+  },
+  data() {
+    return {
+      isMobile: false, // 判斷是否為手機版
+      images: [
+        '/images/product/product_detail/001.jpg',
+        '/images/product/product_detail/002.jpg',
+        '/images/product/product_detail/003.jpg'
+      ],
+      carouselSettings: {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  }
+}
 </script>
