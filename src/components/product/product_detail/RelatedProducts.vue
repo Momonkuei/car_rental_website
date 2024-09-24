@@ -98,8 +98,31 @@ export default {
             '/images/product/product_detail/002.jpg',
             '/images/product/product_detail/003.jpg'
           ]
+        },
+        {
+          name: '大鯨魚 旅行箱',
+          originalPrice: '9000',
+          sellingPrice: '7480',
+          link: 'https://www.youtube.com/?app=desktop&hl=zh-tw',
+          labels: [],
+          images: [
+            '/images/product/products/04.jpg',
+            '/images/product/product_detail/002.jpg',
+            '/images/product/product_detail/003.jpg'
+          ]
+        },
+        {
+          name: '小海豚 旅行箱',
+          originalPrice: '9000',
+          sellingPrice: '7480',
+          link: 'https://www.youtube.com/?app=desktop&hl=zh-tw',
+          labels: [],
+          images: [
+            '/images/product/products/05.jpg',
+            '/images/product/product_detail/002.jpg',
+            '/images/product/product_detail/003.jpg'
+          ]
         }
-        // 其他产品信息
       ],
 
       myCarousel: null
@@ -148,6 +171,10 @@ export default {
   opacity: 0;
   transition: all 0.3s ease-in;
   color: #000;
+
+  i {
+    font-size: 1rem;
+  }
 }
 
 .related-products-gallery-item {
