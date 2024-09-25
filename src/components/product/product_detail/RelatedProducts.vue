@@ -39,9 +39,12 @@
           </carousel>
 
           <div class="related-products-gallery-item-labelLists">
-            <span class="related-products-gallery-item-label" v-for="label in product.labels">{{
-              label
-            }}</span>
+            <span
+              class="related-products-gallery-item-label"
+              v-for="(label, idx) in product.labels"
+              :key="idx"
+              >{{ label }}</span
+            >
           </div>
 
           <div class="related-products-gallery-item-info">

@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/products_detail',
       components: {
-        default: () => import('../views/ProductDetail.vue')
+        default: () => import('../views/page/ProductDetail.vue')
       }
     }
   ]
