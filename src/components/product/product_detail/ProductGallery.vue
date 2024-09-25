@@ -1,20 +1,36 @@
 <template>
   <div class="product-gallery">
     <div class="product-gallery-box">
-      <vue-slick-carousel
+      <Carousel
         v-if="isMobile"
         class="product-gallery-lists"
-        :settings="carouselSettings"
+        v-model="currentSlide"
+        :wrap-around="false"
       >
-        <div class="product-gallery-item" v-for="(img, idx) in images" :key="idx">
+        <Slide class="product-gallery-item" v-for="(img, idx) in images" :key="idx">
           <div class="img-box">
             <img :src="img" alt="" />
           </div>
-        </div>
-      </vue-slick-carousel>
+        </Slide>
+      </Carousel>
+
+      <div class="product-gallery-subBox">
+        <Carousel
+          v-if="isMobile"
+          class="product-gallery-sublists"
+          v-model="currentSlide"
+          :items-to-show="4"
+        >
+          <Slide class="product-gallery-subItem" v-for="(img, idx) in images" :key="idx">
+            <div class="img-box" @click="slideTo(idx)">
+              <img :src="img" alt="" />
+            </div>
+          </Slide>
+        </Carousel>
+      </div>
 
       <!-- 非手機模式下顯示的內容 -->
-      <ul class="product-gallery-lists">
+      <ul class="product-gallery-lists" v-if="!isMobile">
         <li class="product-gallery-item" v-for="(img, idx) in images" :key="idx">
           <div class="img-box">
             <img :src="img" alt="" />
@@ -22,29 +38,17 @@
         </li>
       </ul>
     </div>
-
-    <div class="product-gallery-subBox">
-      <vue-slick-carousel
-        v-if="isMobile"
-        class="product-gallery-sublists"
-        :settings="carouselSettings"
-      >
-        <div class="product-gallery-subItem" v-for="(img, idx) in images" :key="idx">
-          <div class="img-box">
-            <img :src="img" alt="" />
-          </div>
-        </div>
-      </vue-slick-carousel>
-    </div>
   </div>
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 export default {
   components: {
-    VueSlickCarousel
+    Carousel,
+    Slide,
+    Navigation
   },
   data() {
     return {
@@ -54,13 +58,22 @@ export default {
         '/images/product/product_detail/002.jpg',
         '/images/product/product_detail/003.jpg'
       ],
-      carouselSettings: {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
+      currentSlide: 0
+    }
+  },
+  mounted() {
+    this.checkWindowSize() // 初次檢查視窗大小
+    window.addEventListener('resize', this.checkWindowSize) // 監聽視窗大小變化
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkWindowSize) // 移除監聽器
+  },
+  methods: {
+    checkWindowSize() {
+      this.isMobile = window.innerWidth <= 576 // 設定手機版的寬度閾值，例如576px
+    },
+    slideTo(val) {
+      this.currentSlide = val
     }
   }
 }

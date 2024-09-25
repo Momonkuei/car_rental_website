@@ -150,7 +150,6 @@ export default {
   mounted() {
     // 在 mounted 生命週期中取得 carousel 的參考
     this.myCarousel = this.$refs.myCarousel
-    console.log('myCarousel', this.myCarousel)
   }
 }
 </script>
