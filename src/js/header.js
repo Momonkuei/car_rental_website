@@ -111,12 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // 為 body 添加 'open-menu' 類
     document.body.classList.add('open-menu')
     // 移除 .searchBox 上的 'open' 類
-    searchBox.classList.remove('open')
+    searchBox?.classList.remove('open')
   })
 
   document.querySelectorAll('.fullMenu .close-btn, header .fullMenu-mask').forEach(function (ele) {
     ele.addEventListener('click', function () {
-      console.log('123456')
       if (document.body.classList.contains('open-menu')) {
         document.body.classList.remove('open-menu')
       }

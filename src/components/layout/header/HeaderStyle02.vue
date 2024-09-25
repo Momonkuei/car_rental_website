@@ -75,7 +75,7 @@ export default {
         }
       } else {
         // 非首頁滾動邏輯
-        console.log('isScrolled', this.isScrolled)
+
         if (scrollTop > this.hdTop) {
           this.isScrolled = true
         } else {
