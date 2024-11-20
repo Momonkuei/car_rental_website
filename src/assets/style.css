@@ -15335,6 +15335,7 @@ header .navMenu > li.moreMenu > ul li:hover > a {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 .product-lists-gallery-item {
   overflow: hidden;
   padding: 0.75rem 0.5rem;

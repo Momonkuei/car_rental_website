@@ -137,7 +137,6 @@ export default {
       // 確認 $refs.myCarousels 是陣列並取到對應的 carousel
       const carousels = this.$refs.myCarousels
       const targetCarousel = carousels[i]
-      console.log(i)
       if (targetCarousel) {
         targetCarousel.next() // 調用 next 方法
       }
